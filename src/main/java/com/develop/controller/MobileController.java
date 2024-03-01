@@ -39,4 +39,24 @@ public class MobileController {
         mobileList.add(mobileName);
         return Response.ok(mobileName).build();
     }
+
+    /**
+     * Deletes a mobile device from the list.
+     * This method handles DELETE requests to "/api/v1/mobile/delete/{mobile}" endpoint.
+     * It consumes plain text format.
+     *
+     * @param mobileName The name of the mobile device to be deleted.
+     * @return The updated list of mobile devices.
+     */
+    @DELETE
+    @Path("/delete/{mobile}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Response deleteMobile(@PathParam("mobile") String mobileName) {
+        boolean isDeleted = mobileList.remove(mobileName);
+        if (isDeleted) {
+            return Response.ok(mobileList).build();
+        } else {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+    }
 }
