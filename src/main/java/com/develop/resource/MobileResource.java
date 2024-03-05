@@ -7,6 +7,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Path("/api/v1/mobile")
@@ -27,6 +28,26 @@ public class MobileResource {
         return Response.ok(mobileList).build();
     }
 
+
+    /**
+     * Retrieves the list of mobile devices.
+     * This method handles GET requests to "/api/v1/mobile/list/{id}" endpoint.
+     * It produces a response in plain text format.
+     * @param id The ID of the mobile device
+     * @return The list of mobile devices.
+     */
+    @GET
+    @Path("/list/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getMobileById(@PathParam("id") int id) {
+        Optional<Mobile> mobile = mobileList.stream().filter(m -> m.getId() == id).findFirst();
+        if (mobile.isPresent()) {
+            return Response.ok(mobile.get()).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
     /**
      * Adds a new mobile device to the list.
      * This method handles POST requests to "/api/v1/mobile/create" endpoint.
@@ -43,8 +64,7 @@ public class MobileResource {
         mobileList.add(mobile);
         return Response.ok(mobile).build();
     }
-
-
+    
     /**
      * Updates an existing mobile device in the list.
      * This method handles PUT requests to "/api/v1/mobile/update/{id}" endpoint.
