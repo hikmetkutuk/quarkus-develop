@@ -1,4 +1,4 @@
-package com.develop.controller;
+package com.develop.resource;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Path("/api/v1/mobile")
-public class MobileController {
+public class MobileResource {
     List<String> mobileList = new ArrayList<>();
 
     /**
