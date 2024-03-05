@@ -28,7 +28,6 @@ public class MobileResource {
         return Response.ok(mobileList).build();
     }
 
-
     /**
      * Retrieves the list of mobile devices.
      * This method handles GET requests to "/api/v1/mobile/list/{id}" endpoint.
@@ -64,7 +63,7 @@ public class MobileResource {
         mobileList.add(mobile);
         return Response.ok(mobile).build();
     }
-    
+
     /**
      * Updates an existing mobile device in the list.
      * This method handles PUT requests to "/api/v1/mobile/update/{id}" endpoint.
@@ -88,7 +87,6 @@ public class MobileResource {
         }).collect(Collectors.toList());
         return Response.ok(mobileList).build();
     }
-
 
     /**
      * Deletes a mobile device from the list.
