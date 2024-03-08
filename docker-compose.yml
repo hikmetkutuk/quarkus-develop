@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: "postgres:15.5"
+    container_name: quarkus-develop-postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: quarkus_develop
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data_quarkus_develop:/var/lib/postgresql/data
+
+
+volumes:
+  postgres_data_quarkus_develop: {}
