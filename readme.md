@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://i.ibb.co/PgXHgQS/quarkus-logo-C9-F006782-E-seeklogo-com.png" alt="quarkus">  
+	<img src="https://i.ibb.co/PgXHgQS/quarkus-logo-C9-F006782-E-seeklogo-com.png" alt="quarkus" width="100">  
 </p>
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/hikmetkutuk/quarkus-develop?color=inactive&logo=github&style=for-the-badge)
